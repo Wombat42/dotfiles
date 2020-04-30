@@ -48,3 +48,33 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+
+ss() {
+ssh -i ~/Downloads/aw/andywilson-v2-key -p 26 root@$1
+}
+
+postit() {
+rbt post --tracking-branch trunk --branch trunk --target-groups UI "$@"
+}
+
+
+bb() {
+git checkout -b bug-$1
+}
+
+listbug() {
+git branch | grep bug
+}
+
+killbug() {
+git branch -D bug-$1
+}
+
+devbranch() {
+git checkout -b dev-agm-$1
+}
+
+clean() {
+rm -rf /Users/andywilson/AGM/webui/gm/dist
+}
